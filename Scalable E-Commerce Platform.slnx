@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ProductCatalogService/ProductCatalogService.csproj" Id="d38d91f6-81b5-424a-9b10-c4ab86dc2ea2" />
+  <Project Path="UserService/UserService.csproj" Id="cc679feb-c428-4f6e-a859-b62e19934e7c" />
+</Solution>
