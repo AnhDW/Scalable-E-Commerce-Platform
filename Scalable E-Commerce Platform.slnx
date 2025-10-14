@@ -1,4 +1,14 @@
 <Solution>
-  <Project Path="ProductCatalogService/ProductCatalogService.csproj" Id="d38d91f6-81b5-424a-9b10-c4ab86dc2ea2" />
-  <Project Path="UserService/UserService.csproj" Id="cc679feb-c428-4f6e-a859-b62e19934e7c" />
+  <Folder Name="/Gateway/">
+    <Project Path="APIGateway/APIGateway.csproj" Id="9da0fedf-adf1-4b6e-afa5-63483338c6cd" />
+  </Folder>
+  <Folder Name="/Service/">
+    <Project Path="AuthService/AuthService.csproj" Id="45ecb44d-c7e9-4e02-95ec-8f64d94e39ef" />
+    <Project Path="ProductCatalogService/ProductCatalogService.csproj" Id="d38d91f6-81b5-424a-9b10-c4ab86dc2ea2" />
+  </Folder>
+  <Folder Name="/Shared/">
+    <Project Path="Common/Common.csproj" Id="cb460a36-3cc8-4b46-8f36-53b0525ce05d" />
+    <Project Path="Contracts/Contracts.csproj" Id="f8fb7558-4a7c-4b5d-a620-58fb7bcfc20e" />
+    <Project Path="Infrastructure/Infrastructure.csproj" Id="c25d6789-c7e5-4750-ad6f-6350d8ac0600" />
+  </Folder>
 </Solution>
