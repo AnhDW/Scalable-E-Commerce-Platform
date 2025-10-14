@@ -1,7 +1,7 @@
 ﻿using AuthService.Entities;
 using System.Security.Claims;
 
-namespace AuthService.Services.IServices
+namespace AuthService.Repositories.IRepositories
 {
     public interface IJwtTokenGenerator
     {

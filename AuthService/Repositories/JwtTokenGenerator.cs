@@ -1,5 +1,5 @@
 ﻿using AuthService.Entities;
-using AuthService.Services.IServices;
+using AuthService.Repositories.IRepositories;
 using Contracts.Entities;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -7,7 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace AuthService.Services
+namespace AuthService.Repositories
 {
     public class JwtTokenGenerator : IJwtTokenGenerator
     {

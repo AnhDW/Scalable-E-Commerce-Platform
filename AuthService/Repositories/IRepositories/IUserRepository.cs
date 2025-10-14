@@ -3,9 +3,9 @@ using Common.Helper;
 using Common.Helper.EntityParams;
 using Contracts.DTOs.Auth;
 
-namespace AuthService.Services.IServices
+namespace AuthService.Repositories.IRepositories
 {
-    public interface IUserService
+    public interface IUserRepository
     {
         Task<PagedList<UserDto>> GetAll(UserParams userParams);
         Task<List<ApplicationUser>> GetAll();

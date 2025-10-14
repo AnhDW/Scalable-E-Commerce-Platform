@@ -1,14 +1,14 @@
 ﻿using AuthService.Data;
 using AuthService.Entities;
-using AuthService.Services.IServices;
+using AuthService.Repositories.IRepositories;
 using AutoMapper;
 using Contracts.DTOs.Auth;
 using Microsoft.AspNetCore.Identity;
 using System;
 
-namespace AuthService.Services
+namespace AuthService.Repositories
 {
-    public class AuthService : IAuthService
+    public class AuthRepository : IAuthRepository
     {
         private readonly AuthDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -16,7 +16,7 @@ namespace AuthService.Services
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly IMapper _mapper;
 
-        public AuthService(AuthDbContext context, UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, IJwtTokenGenerator jwtTokenGenerator, IMapper mapper)
+        public AuthRepository(AuthDbContext context, UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager, IJwtTokenGenerator jwtTokenGenerator, IMapper mapper)
         {
             _context = context;
             _userManager = userManager;

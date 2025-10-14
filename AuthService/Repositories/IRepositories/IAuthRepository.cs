@@ -1,9 +1,9 @@
 ﻿using AuthService.Entities;
 using Contracts.DTOs.Auth;
 
-namespace AuthService.Services.IServices
+namespace AuthService.Repositories.IRepositories
 {
-    public interface IAuthService
+    public interface IAuthRepository
     {
         Task<RegisterResponseDto> Register(RegistrationRequestDto registrationRequestDto);
         Task<LoginResponseDto> Login(LoginRequestDto loginRequestDto);

@@ -1,6 +1,6 @@
 ﻿using AuthService.Data;
 using AuthService.Entities;
-using AuthService.Services.IServices;
+using AuthService.Repositories.IRepositories;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Common.Helper;
@@ -9,15 +9,15 @@ using Contracts.DTOs.Auth;
 using Microsoft.EntityFrameworkCore;
 using System;
 
-namespace AuthService.Services
+namespace AuthService.Repositories
 {
-    public class UserService : IUserService
+    public class UserRepository : IUserRepository
     {
         private readonly IDbContextFactory<AuthDbContext> _dbContextFactory;
         private readonly AuthDbContext _context;
         private readonly IMapper _mapper;
 
-        public UserService(IDbContextFactory<AuthDbContext> dbContextFactory, AuthDbContext context, IMapper mapper)
+        public UserRepository(IDbContextFactory<AuthDbContext> dbContextFactory, AuthDbContext context, IMapper mapper)
         { 
             _dbContextFactory = dbContextFactory;
             _context = context;
