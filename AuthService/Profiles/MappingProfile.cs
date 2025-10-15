@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using AuthService.Entities;
+using AutoMapper;
+using Contracts.DTOs.Auth;
 
 namespace AuthService.Profiles
 {
@@ -6,7 +8,9 @@ namespace AuthService.Profiles
     {
         public MappingProfile()
         {
-            
+            CreateMap<UserDto, ApplicationUser>().ReverseMap();
+            CreateMap<ApplicationRole, RoleDto>().ReverseMap();
+
         }
 
     }

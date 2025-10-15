@@ -19,12 +19,12 @@ namespace AuthService.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
 
         protected ResponseDto _response;
-        public AuthController(IAuthRepository authRepository, IUserRepository userRepository, UserManager<ApplicationUser> userManager, ResponseDto response)
+        public AuthController(IAuthRepository authRepository, IUserRepository userRepository, UserManager<ApplicationUser> userManager)
         {
             _authRepository = authRepository;
             _userRepository = userRepository;
             _userManager = userManager;
-            _response = response;
+            _response = new ResponseDto();
         }
 
         [HttpPost("register")]

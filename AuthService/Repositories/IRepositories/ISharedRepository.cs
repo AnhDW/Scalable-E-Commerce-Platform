@@ -2,5 +2,6 @@
 {
     public interface ISharedRepository
     {
+        Task<bool> SaveAllChanges();
     }
 }
