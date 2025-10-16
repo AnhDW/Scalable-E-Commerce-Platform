@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="DTOs\Store\" />
     <Folder Include="DTOs\Notification\" />
     <Folder Include="DTOs\Payment\" />
     <Folder Include="DTOs\Order\" />

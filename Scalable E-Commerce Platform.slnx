@@ -6,6 +6,7 @@
     <Project Path="AuthService/AuthService.csproj" Id="45ecb44d-c7e9-4e02-95ec-8f64d94e39ef" />
     <Project Path="ProductCatalogService/ProductCatalogService.csproj" Id="d38d91f6-81b5-424a-9b10-c4ab86dc2ea2" />
     <Project Path="RelationshipService/RelationshipService.csproj" Id="aba0b083-fad7-4acc-945f-9452c66e044a" />
+    <Project Path="StoreService/StoreService.csproj" Id="580e5b7d-19ba-442a-ba83-87e3fdb26681" />
   </Folder>
   <Folder Name="/Shared/">
     <Project Path="Common/Common.csproj" Id="cb460a36-3cc8-4b46-8f36-53b0525ce05d" />
