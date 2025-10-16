@@ -1,3 +1,4 @@
+using Common.Json;
 using Microsoft.AspNetCore.Http.HttpResults;
 using System.Text.Json.Serialization;
 
@@ -10,6 +11,9 @@ builder.Services.ConfigureHttpJsonOptions(options =>
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Support serializing enums as strings in JSON
+builder.Services.AddJsonEnumStringConverter();
 
 var app = builder.Build();
 
