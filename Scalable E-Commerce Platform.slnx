@@ -4,9 +4,8 @@
   </Folder>
   <Folder Name="/Service/">
     <Project Path="AuthService/AuthService.csproj" Id="45ecb44d-c7e9-4e02-95ec-8f64d94e39ef" />
-    <Project Path="ProductCatalogService/ProductCatalogService.csproj" Id="d38d91f6-81b5-424a-9b10-c4ab86dc2ea2" />
-    <Project Path="RelationshipService/RelationshipService.csproj" Id="648183ed-11d3-4be2-90d3-2a7596ccd1cc" />
-    <Project Path="StoreService/StoreService.csproj" Id="580e5b7d-19ba-442a-ba83-87e3fdb26681" />
+    <Project Path="BusinessService/BusinessService.csproj" Id="6613d056-6a6d-49b4-b676-84b09d685208" />
+    <Project Path="RelationshipService/RelationshipService.csproj" Id="6808b906-2bd0-43ee-8985-9cf6c161f7f1" />
   </Folder>
   <Folder Name="/Shared/">
     <Project Path="Common/Common.csproj" Id="cb460a36-3cc8-4b46-8f36-53b0525ce05d" />

@@ -8,11 +8,30 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\Notification\" />
-    <Folder Include="DTOs\Payment\" />
-    <Folder Include="DTOs\Order\" />
-    <Folder Include="DTOs\ShoppingCart\" />
-    <Folder Include="DTOs\ProductCatalog\" />
+    <Compile Remove="DTOs\Notification\**" />
+    <Compile Remove="DTOs\Order\**" />
+    <Compile Remove="DTOs\Payment\**" />
+    <Compile Remove="DTOs\ProductCatalog\**" />
+    <Compile Remove="DTOs\ShoppingCart\**" />
+    <Content Remove="DTOs\Notification\**" />
+    <Content Remove="DTOs\Order\**" />
+    <Content Remove="DTOs\Payment\**" />
+    <Content Remove="DTOs\ProductCatalog\**" />
+    <Content Remove="DTOs\ShoppingCart\**" />
+    <EmbeddedResource Remove="DTOs\Notification\**" />
+    <EmbeddedResource Remove="DTOs\Order\**" />
+    <EmbeddedResource Remove="DTOs\Payment\**" />
+    <EmbeddedResource Remove="DTOs\ProductCatalog\**" />
+    <EmbeddedResource Remove="DTOs\ShoppingCart\**" />
+    <None Remove="DTOs\Notification\**" />
+    <None Remove="DTOs\Order\**" />
+    <None Remove="DTOs\Payment\**" />
+    <None Remove="DTOs\ProductCatalog\**" />
+    <None Remove="DTOs\ShoppingCart\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
   </ItemGroup>
 
 </Project>

@@ -44,7 +44,7 @@ namespace AuthService.Controllers
             if (user == null)
             {
                 _responseDto.IsSuccess = false;
-                _responseDto.Message = "User not found!";
+                _responseDto.Message = "Not found!";
                 return NotFound(_responseDto);
             }
             _responseDto.Result = _mapper.Map<UserDto>(user);
@@ -58,19 +58,19 @@ namespace AuthService.Controllers
             if (user == null)
             {
                 _responseDto.IsSuccess = false;
-                _responseDto.Message = "User not found!";
+                _responseDto.Message = "Not found!";
                 return NotFound(_responseDto);
             }
             _mapper.Map(userDto, user);
             _userRepository.Update(user);
             if (await _sharedRepository.SaveAllChanges())
             {
-                _responseDto.Message = "Cập nhật thành công";
+                _responseDto.Message = "Successful";
                 return Ok(_responseDto);
             }
 
             _responseDto.IsSuccess = false;
-            _responseDto.Message = "Lỗi trong quá trình cập nhật";
+            _responseDto.Message = "Error";
             return BadRequest(_responseDto);
         }
 
@@ -88,12 +88,12 @@ namespace AuthService.Controllers
             _userRepository.Delete(user);
             if (await _sharedRepository.SaveAllChanges())
             {
-                _responseDto.Message = "Xóa thành công";
+                _responseDto.Message = "Successful";
                 return Ok(_responseDto);
             }
 
             _responseDto.IsSuccess = false;
-            _responseDto.Message = "Lỗi trong quá trình xóa";
+            _responseDto.Message = "Error";
             return BadRequest(_responseDto);
         }
 
