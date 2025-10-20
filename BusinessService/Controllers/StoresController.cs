@@ -6,6 +6,7 @@ using Common.Extensions;
 using Common.Helper.EntityParams;
 using Contracts.DTOs;
 using Contracts.DTOs.Business;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -52,10 +53,13 @@ namespace BusinessService.Controllers
             return Ok(_responseDto);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Add([FromBody] StoreDto storeDto)
         {
-            _storeRepository.Add(_mapper.Map<Store>(storeDto));
+            var store = _mapper.Map<Store>(storeDto);
+            store.CreatedBy = User.GetUserId();
+            _storeRepository.Add(store);
             if (await _sharedRepository.SaveAllChanges())
             {
                 _responseDto.Message = "Success";

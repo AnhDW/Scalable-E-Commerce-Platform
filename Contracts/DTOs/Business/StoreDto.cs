@@ -10,5 +10,6 @@
         public string? Currency { get; set; } = "VND";
         public string? Language { get; set; } = "vi";
         public string? ThemeColor { get; set; } = "#007bff";
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 }

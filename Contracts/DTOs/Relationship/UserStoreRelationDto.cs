@@ -3,10 +3,10 @@ using Common.Extensions;
 
 namespace Contracts.DTOs.Relationship
 {
-    public class UserStoreDto
+    public class UserStoreRelationDto
     {
-        public int UserId { get; set; }
-        public int StoreId { get; set; }
+        public string UserId { get; set; }
+        public Guid StoreId { get; set; }
         public StoreRole Role { get; set; }
         public string RoleName => Role.GetDisplayName();
     }

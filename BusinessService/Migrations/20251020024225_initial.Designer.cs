@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BusinessService.Migrations
 {
     [DbContext(typeof(BusinessDbContext))]
-    [Migration("20251018143105_initial")]
+    [Migration("20251020024225_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -32,6 +32,13 @@ namespace BusinessService.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Currency")
