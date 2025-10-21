@@ -1,6 +1,6 @@
 ﻿namespace Common.Helper.EntityParams
 {
-    public class UserStoreRelationParams
+    public class UserStoreRelationParams : PaginationParams
     {
     }
 }

@@ -14,6 +14,9 @@ namespace RelationshipService.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<UserStoreRelation>()
+                .HasKey(usr => new { usr.UserId, usr.StoreId });
         }
     }
 }

@@ -17,6 +17,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"
 builder.Services.AddJwtAuthentication(builder.Configuration);
 
 builder.Services.AddScoped<IUserStoreRelationRepository, UserStoreRelationRepository>();
+builder.Services.AddScoped<ISharedRepository, SharedRepository>();
 
 var assemblies = AppDomain.CurrentDomain.GetAssemblies()
     .Where(a => !a.FullName.StartsWith("Microsoft.Data.SqlClient"))
@@ -29,10 +30,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapSwaggerUI();
 }
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

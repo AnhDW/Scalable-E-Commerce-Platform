@@ -76,19 +76,19 @@ namespace BusinessService.Controllers
         {
             var storeIds = await _storeCategoryRelationRepository.GetStoreIdsByStoreCategoryId(updateStoresByStoreCategoryDto.StoreCategoryId);
             var addStoreIds = updateStoresByStoreCategoryDto.StoreIds.Except(storeIds);
-            var deleteStoreIds = storeIds.Except(updateStoresByStoreCategoryDto.StoreIds);
+            var delStoreIds = storeIds.Except(updateStoresByStoreCategoryDto.StoreIds);
             foreach (var storeId in addStoreIds)
             {
                 _storeCategoryRelationRepository.Add(new StoreCategoryRelation { StoreCategoryId = updateStoresByStoreCategoryDto.StoreCategoryId, StoreId = storeId });
             }
-            foreach (var storeId in deleteStoreIds)
+            foreach (var storeId in delStoreIds)
             {
                 var storeCategoryRelation = await _storeCategoryRelationRepository.GetById(storeId, updateStoresByStoreCategoryDto.StoreCategoryId);
                 _storeCategoryRelationRepository.Delete(storeCategoryRelation);
             }
             if(await _sharedRepository.SaveAllChanges())
             {
-                _responseDto.Message = $"Add {addStoreIds.Count()} store category relations, delete {deleteStoreIds.Count()} store category relations";
+                _responseDto.Message = $"Add {addStoreIds.Count()} store category relations, delete {delStoreIds.Count()} store category relations";
                 return Ok(_responseDto);
             }
             _responseDto.Message = "No change";
@@ -100,19 +100,19 @@ namespace BusinessService.Controllers
         {
             var storeCategoryIds = await _storeCategoryRelationRepository.GetStoreCategoryIdsByStoreId(updateStoreCategoriesByStores.StoreId);
             var addStoreCategoryIds = updateStoreCategoriesByStores.StoreCategoryIds.Except(storeCategoryIds);
-            var deleteStoreCategoryIds = storeCategoryIds.Except(updateStoreCategoriesByStores.StoreCategoryIds);
+            var delStoreCategoryIds = storeCategoryIds.Except(updateStoreCategoriesByStores.StoreCategoryIds);
             foreach(var storeCategoryId in addStoreCategoryIds)
             {
                 _storeCategoryRelationRepository.Add(new StoreCategoryRelation { StoreId = updateStoreCategoriesByStores.StoreId, StoreCategoryId = storeCategoryId });
             }
-            foreach(var storeCategoryId in deleteStoreCategoryIds)
+            foreach(var storeCategoryId in delStoreCategoryIds)
             {
                 var storeCategoryRelation = await _storeCategoryRelationRepository.GetById(updateStoreCategoriesByStores.StoreId, storeCategoryId);
                 _storeCategoryRelationRepository.Delete(storeCategoryRelation);
             }
             if (await _sharedRepository.SaveAllChanges())
             {
-                _responseDto.Message = $"Add {addStoreCategoryIds.Count()} store category relations, delete {deleteStoreCategoryIds.Count()} store category relations";
+                _responseDto.Message = $"Add {addStoreCategoryIds.Count()} store category relations, delete {delStoreCategoryIds.Count()} store category relations";
                 return Ok(_responseDto);
             }
             _responseDto.Message = "No change";
