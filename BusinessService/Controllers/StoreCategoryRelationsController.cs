@@ -96,18 +96,18 @@ namespace BusinessService.Controllers
         }
 
         [HttpPut("update-store-categories-by-store")]
-        public async Task<IActionResult> UpdateStoreCategoriesByStores([FromBody] UpdateStoreCategoriesByStoreDto updateStoreCategoriesByStores)
+        public async Task<IActionResult> UpdateStoreCategoriesByStore([FromBody] UpdateStoreCategoriesByStoreDto updateStoreCategoriesByStoreDto)
         {
-            var storeCategoryIds = await _storeCategoryRelationRepository.GetStoreCategoryIdsByStoreId(updateStoreCategoriesByStores.StoreId);
-            var addStoreCategoryIds = updateStoreCategoriesByStores.StoreCategoryIds.Except(storeCategoryIds);
-            var delStoreCategoryIds = storeCategoryIds.Except(updateStoreCategoriesByStores.StoreCategoryIds);
+            var storeCategoryIds = await _storeCategoryRelationRepository.GetStoreCategoryIdsByStoreId(updateStoreCategoriesByStoreDto.StoreId);
+            var addStoreCategoryIds = updateStoreCategoriesByStoreDto.StoreCategoryIds.Except(storeCategoryIds);
+            var delStoreCategoryIds = storeCategoryIds.Except(updateStoreCategoriesByStoreDto.StoreCategoryIds);
             foreach(var storeCategoryId in addStoreCategoryIds)
             {
-                _storeCategoryRelationRepository.Add(new StoreCategoryRelation { StoreId = updateStoreCategoriesByStores.StoreId, StoreCategoryId = storeCategoryId });
+                _storeCategoryRelationRepository.Add(new StoreCategoryRelation { StoreId = updateStoreCategoriesByStoreDto.StoreId, StoreCategoryId = storeCategoryId });
             }
             foreach(var storeCategoryId in delStoreCategoryIds)
             {
-                var storeCategoryRelation = await _storeCategoryRelationRepository.GetById(updateStoreCategoriesByStores.StoreId, storeCategoryId);
+                var storeCategoryRelation = await _storeCategoryRelationRepository.GetById(updateStoreCategoriesByStoreDto.StoreId, storeCategoryId);
                 _storeCategoryRelationRepository.Delete(storeCategoryRelation);
             }
             if (await _sharedRepository.SaveAllChanges())
