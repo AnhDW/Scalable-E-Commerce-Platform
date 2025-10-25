@@ -8,5 +8,8 @@
         public Guid? ParentId { get; set; } 
 
         public List<Product>  Products { get; set; } = new List<Product>();
+
+        public ProductCategory? ParentCategory { get; set; }
+        public List<ProductCategory> SubCategories { get; set; } = new List<ProductCategory>();
     }
 }

@@ -45,6 +45,11 @@ namespace ProductCatalogService.Data
                 .WithOne(x => x.ProductTag)
                 .HasForeignKey(x => x.ProductTagId);
 
+            modelBuilder.Entity<ProductCategory>()
+                .HasMany(x => x.SubCategories)
+                .WithOne(x => x.ParentCategory)
+                .HasForeignKey(x => x.ParentId);
+
             modelBuilder.Entity<ProductTagRelation>()
                 .HasKey(x => new { x.ProductId, x.ProductTagId });
         }

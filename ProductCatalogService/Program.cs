@@ -1,4 +1,6 @@
 using Common.Extensions;
+using Common.Services;
+using Common.Services.IServices;
 using Microsoft.EntityFrameworkCore;
 using ProductCatalogService.Data;
 using ProductCatalogService.Repositories;
@@ -27,6 +29,8 @@ builder.Services.AddScoped<IProductVariantRepository, ProductVariantRepository>(
 builder.Services.AddScoped<IProductCategoryRepository, ProductCategoryRepository>();
 builder.Services.AddScoped<IProductTagRelationRepository, ProductTagRelationRepository>();
 builder.Services.AddScoped<ISharedRepository, SharedRepository>();
+builder.Services.AddScoped<IFileService, FileService>();
+
 builder.Services.AddAutoMapper(cfg => cfg.AddMaps(assemblies));
 var app = builder.Build();
 
