@@ -9,16 +9,12 @@
 
   <ItemGroup>
     <Compile Remove="DTOs\Notification\**" />
-    <Compile Remove="DTOs\Order\**" />
     <Compile Remove="DTOs\Payment\**" />
     <Content Remove="DTOs\Notification\**" />
-    <Content Remove="DTOs\Order\**" />
     <Content Remove="DTOs\Payment\**" />
     <EmbeddedResource Remove="DTOs\Notification\**" />
-    <EmbeddedResource Remove="DTOs\Order\**" />
     <EmbeddedResource Remove="DTOs\Payment\**" />
     <None Remove="DTOs\Notification\**" />
-    <None Remove="DTOs\Order\**" />
     <None Remove="DTOs\Payment\**" />
   </ItemGroup>
 

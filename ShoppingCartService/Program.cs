@@ -17,6 +17,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection"
 builder.Services.AddJwtAuthentication(builder.Configuration);
 
 builder.Services.AddScoped<ICartItemRepository, CartItemRepository>();
+builder.Services.AddScoped<ISharedRepository, SharedRepository>();
 
 var assemblies = AppDomain.CurrentDomain.GetAssemblies()
     .Where(a => !a.FullName.StartsWith("Microsoft.Data.SqlClient"))
