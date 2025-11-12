@@ -18,5 +18,8 @@ namespace OrderService.Entities
         public string? Notes { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+
+        public List<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+        public List<OrderStatusHistory> StatusHistories { get; set; } = new List<OrderStatusHistory>();
     }
 }

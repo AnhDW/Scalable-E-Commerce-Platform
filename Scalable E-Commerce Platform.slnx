@@ -6,6 +6,7 @@
     <Project Path="AuthService/AuthService.csproj" Id="45ecb44d-c7e9-4e02-95ec-8f64d94e39ef" />
     <Project Path="BusinessService/BusinessService.csproj" Id="6613d056-6a6d-49b4-b676-84b09d685208" />
     <Project Path="OrderService/OrderService.csproj" Id="dd7519f3-62d7-4f81-bae3-dea44b7ef3a3" />
+    <Project Path="PaymentService/PaymentService.csproj" Id="b0f9c3bd-a028-42d3-a9ed-3772833ca75c" />
     <Project Path="ProductCatalogService/ProductCatalogService.csproj" Id="cf02ce91-214e-4467-9a4e-8e1f5e04d800" />
     <Project Path="RelationshipService/RelationshipService.csproj" Id="6808b906-2bd0-43ee-8985-9cf6c161f7f1" />
     <Project Path="ShoppingCartService/ShoppingCartService.csproj" Id="bed4dd90-4010-4388-b1a4-508186feaf9d" />

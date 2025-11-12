@@ -10,5 +10,7 @@ namespace OrderService.Entities
         public OrderStatus NewStatus { get; set; }
         public DateTime ChangedAt { get; set; }
         public string ChangedBy { get; set; } // UserId or System
+
+        public Order Order { get; set; }
     }
 }
