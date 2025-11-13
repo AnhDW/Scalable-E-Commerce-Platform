@@ -9,6 +9,7 @@ namespace RelationshipService.Profiles
         protected MappingProfile()
         {
             CreateMap<UserStoreRelation, UserStoreRelationDto>().ReverseMap();
+            CreateMap<PaymentOrderRelation, PaymentOrderRelationDto>().ReverseMap();
         }
     }
 }

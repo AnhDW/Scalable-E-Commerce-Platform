@@ -34,11 +34,11 @@ namespace RelationshipService.Repositories
             _context.UserStoreRelations.Remove(userStoreRelation);
         }
 
-        public Task<PagedList<UserStoreRelationDto>> GetAll(UserStoreRelationParams userStoreRelationParams)
+        public async Task<PagedList<UserStoreRelationDto>> GetAll(UserStoreRelationParams userStoreRelationParams)
         {
             var query = _context.UserStoreRelations.AsQueryable();
 
-            return PagedList<UserStoreRelationDto>.CreateAsync(
+            return await PagedList<UserStoreRelationDto>.CreateAsync(
                 query.AsNoTracking().ProjectTo<UserStoreRelationDto>(_mapper.ConfigurationProvider),
                 userStoreRelationParams.PageNumber,
                 userStoreRelationParams.PageSize);

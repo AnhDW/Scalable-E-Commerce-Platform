@@ -16,6 +16,7 @@ builder.Services.AddDbContextFactory<RelationshipDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("LocalConnection")), ServiceLifetime.Scoped);
 builder.Services.AddJwtAuthentication(builder.Configuration);
 
+builder.Services.AddScoped<IPaymentOrderRelationRepository, PaymentOrderRelationRepository>();
 builder.Services.AddScoped<IUserStoreRelationRepository, UserStoreRelationRepository>();
 builder.Services.AddScoped<ISharedRepository, SharedRepository>();
 
