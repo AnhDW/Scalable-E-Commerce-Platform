@@ -1,6 +1,8 @@
 using Common.Extensions;
 using Microsoft.EntityFrameworkCore;
 using PaymentService.Data;
+using PaymentService.Repositories;
+using PaymentService.Repositories.IRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,9 @@ builder.Services.AddJwtAuthentication(builder.Configuration);
 var assemblies = AppDomain.CurrentDomain.GetAssemblies()
     .Where(a => !a.FullName.StartsWith("Microsoft.Data.SqlClient"))
     .ToArray();
+
+builder.Services.AddScoped<IPaymentTransactionRepository, PaymentTransactionRepository>();
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 
 builder.Services.AddAutoMapper(cfg => cfg.AddMaps(assemblies));
 var app = builder.Build();

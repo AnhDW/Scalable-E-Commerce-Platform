@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Contracts.DTOs.Payment;
+using PaymentService.Entities;
 
 namespace PaymentService.Profiles
 {
@@ -6,7 +8,8 @@ namespace PaymentService.Profiles
     {
         protected MappingProfile()
         {
-
+            CreateMap<Payment, PaymentDto>().ReverseMap();
+            CreateMap<PaymentTransaction, PaymentTransactionDto>().ReverseMap();
         }
     }
 }

@@ -1,6 +1,17 @@
-﻿namespace Contracts.DTOs.Payment
+﻿using Common.Enums;
+
+namespace Contracts.DTOs.Payment
 {
     public class PaymentDto
     {
+        public Guid Id { get; set; }
+        public string UserId { get; set; }
+        public string PaymentCode { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
+        public PaymentStatus PaymentStatus { get; set; }
+        public decimal TotalAmount { get; set; }
+        public string Currency { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
     }
 }

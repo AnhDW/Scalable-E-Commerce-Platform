@@ -50,7 +50,7 @@ namespace RelationshipService.Controllers
             return Ok(_responseDto);
         }
         
-        [HttpGet("get-users-by-store-id/{storeId}")]
+        [HttpGet("get-user-ids-by-store-id/{storeId}")]
         public async Task<IActionResult> GetUsersByStoreId(Guid storeId)
         {
             var userIds = await _userStoreRelationRepository.GetUserIdsByStoreId(storeId);
@@ -58,7 +58,7 @@ namespace RelationshipService.Controllers
             return Ok(_responseDto);
         }
 
-        [HttpGet("get-stores-by-user-id/{userId}")]
+        [HttpGet("get-store-ids-by-user-id/{userId}")]
         public async Task<IActionResult> GetStoresByUserId(string userId)
         {
             var storeIds = await _userStoreRelationRepository.GetStoreIdsByUserId(userId);
