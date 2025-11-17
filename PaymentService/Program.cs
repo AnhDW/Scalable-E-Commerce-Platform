@@ -1,6 +1,8 @@
 using Common.Extensions;
 using Microsoft.EntityFrameworkCore;
 using PaymentService.Data;
+using PaymentService.GatewayRepository;
+using PaymentService.GatewayRepository.IGatewayRepository;
 using PaymentService.Repositories;
 using PaymentService.Repositories.IRepositories;
 
@@ -21,6 +23,8 @@ var assemblies = AppDomain.CurrentDomain.GetAssemblies()
 
 builder.Services.AddScoped<IPaymentTransactionRepository, PaymentTransactionRepository>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddSingleton<IPaymentGateway, VnPayGateway>();
+builder.Services.AddSingleton<IPaymentGateway, MomoGateway>();
 
 builder.Services.AddAutoMapper(cfg => cfg.AddMaps(assemblies));
 var app = builder.Build();
