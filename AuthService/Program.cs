@@ -76,5 +76,9 @@ void AddlyMigration()
         {
             _db.Database.Migrate();
         }
+        // Seed data
+        var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+        var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+        DbInitializer.SeedAsync(userManager, roleManager).Wait();
     }
 }
