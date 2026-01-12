@@ -10,7 +10,9 @@ namespace AuthService.Profiles
         {
             CreateMap<UserDto, ApplicationUser>().ReverseMap();
             CreateMap<ApplicationRole, RoleDto>().ReverseMap();
-
+            CreateMap<ApplicationUserRole, UserRoleDto>().ReverseMap();
+            CreateMap<Permission, PermissionDto>().ReverseMap();
+            CreateMap<PermissionRole, PermissionRoleDto>().ReverseMap();
         }
 
     }

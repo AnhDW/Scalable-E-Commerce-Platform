@@ -5,5 +5,7 @@ namespace AuthService.Entities
     public class ApplicationRole : IdentityRole
     {
         public string DisplayName {  get; set; } = string.Empty;
+
+        public List<PermissionRole> PermissionRoles { get; set; } = new();
     }
 }
