@@ -50,9 +50,9 @@ namespace AuthService.Repositories
             return await _context.PermissionRoles.ToListAsync();
         }
 
-        public async Task<PermissionRole> GetById(string roleId, Guid permissionId)
+        public async Task<PermissionRole> GetById(Guid permissionId, string roleId)
         {
-            return (await _context.PermissionRoles.FindAsync(roleId, permissionId))!;
+            return (await _context.PermissionRoles.FindAsync(permissionId, roleId))!;
         }
 
         public async Task<List<Guid>> GetPermissionIdsByRoleId(string roleId)

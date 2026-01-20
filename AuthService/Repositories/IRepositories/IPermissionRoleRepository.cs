@@ -13,7 +13,7 @@ namespace AuthService.Repositories.IRepositories
         Task<List<PermissionRole>> GetAll();
         Task<List<string>> GetRoleIdsByPermissionId(Guid permissionId);
         Task<List<Guid>> GetPermissionIdsByRoleId(string roleId);
-        Task<PermissionRole> GetById(string userId, Guid storeId);
+        Task<PermissionRole> GetById(Guid permissionId, string roleId);
         void Add(PermissionRole permissionRole);
         void Update(PermissionRole permissionRole);
         void Delete(PermissionRole permissionRole);

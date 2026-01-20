@@ -17,6 +17,15 @@ namespace AuthService.Controllers
         private readonly IRoleRepository _roleRepository;
         protected ResponseDto _responseDto;
 
+        public UserRolesController(IUserRoleRepository userRoleRepository, ISharedRepository sharedRepository, IUserRepository userRepository, IRoleRepository roleRepository)
+        {
+            _userRoleRepository = userRoleRepository;
+            _sharedRepository = sharedRepository;
+            _userRepository = userRepository;
+            _roleRepository = roleRepository;
+            _responseDto = new ResponseDto();
+        }
+
         [HttpGet("{userId}/{roleId}")]
         public async Task<IActionResult> GetById(string userId, string roleId)
         {
