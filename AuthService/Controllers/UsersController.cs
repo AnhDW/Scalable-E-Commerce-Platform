@@ -4,6 +4,7 @@ using AutoMapper;
 using Azure;
 using Common.Extensions;
 using Common.Helper.EntityParams;
+using Common.Services.IServices;
 using Contracts.DTOs;
 using Contracts.DTOs.Auth;
 using Microsoft.AspNetCore.Http;
@@ -17,15 +18,17 @@ namespace AuthService.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly ISharedRepository _sharedRepository;
+        private readonly IFileService _fileService;
         private readonly IMapper _mapper;
         protected ResponseDto _responseDto;
 
-        public UsersController(IUserRepository userRepository, ISharedRepository sharedRepository, IMapper mapper)
+        public UsersController(IUserRepository userRepository, ISharedRepository sharedRepository, IMapper mapper, IFileService fileService)
         {
             _userRepository = userRepository;
             _sharedRepository = sharedRepository;
             _responseDto = new ResponseDto();
             _mapper = mapper;
+            _fileService = fileService;
         }
 
         [HttpGet]
@@ -52,7 +55,7 @@ namespace AuthService.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UserDto userDto)
+        public async Task<IActionResult> Update([FromForm] UserDto userDto)
         {
             var user = await _userRepository.GetById(userDto.Id);
             if (user == null)
@@ -60,6 +63,15 @@ namespace AuthService.Controllers
                 _responseDto.IsSuccess = false;
                 _responseDto.Message = "Not found!";
                 return NotFound(_responseDto);
+            }
+            userDto.AvatarUrl = user.AvatarUrl;
+            if(userDto.File != null)
+            {
+                if(!string.IsNullOrEmpty(user.AvatarUrl) || user.AvatarUrl != "/images/default-avatar.jpg")
+                {
+                    _fileService.DeleteAttachment(user.AvatarUrl!);
+                }
+                userDto.AvatarUrl = await _fileService.AddCompressAttachment(userDto.File!);
             }
             _mapper.Map(userDto, user);
             _userRepository.Update(user);
@@ -84,7 +96,7 @@ namespace AuthService.Controllers
                 _responseDto.Message = "User not found!";
                 return NotFound(_responseDto);
             }
-            //_fileService.DeleteAttachment(user.AvatarUrl!);
+            _fileService.DeleteAttachment(user.AvatarUrl!);
             _userRepository.Delete(user);
             if (await _sharedRepository.SaveAllChanges())
             {

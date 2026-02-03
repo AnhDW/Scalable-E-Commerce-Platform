@@ -9,5 +9,7 @@
         public string? PhoneNumber { get; set; }
         public string? AvatarUrl { get; set; } = "/images/default-avatar.jpg";
         public IList<string>? Roles { get; set; } = new List<string>();
+
+        public IFormFile? File { get; set; }
     }
 }

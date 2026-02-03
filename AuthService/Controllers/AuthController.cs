@@ -1,6 +1,7 @@
 ﻿using AuthService.Entities;
 using AuthService.Repositories.IRepositories;
 using Common.Extensions;
+using Common.Services.IServices;
 using Contracts.DTOs;
 using Contracts.DTOs.Auth;
 using Microsoft.AspNetCore.Authorization;
@@ -16,15 +17,17 @@ namespace AuthService.Controllers
     {
         private readonly IAuthRepository _authRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IFileService _fileService;
         private readonly UserManager<ApplicationUser> _userManager;
 
         protected ResponseDto _response;
-        public AuthController(IAuthRepository authRepository, IUserRepository userRepository, UserManager<ApplicationUser> userManager)
+        public AuthController(IAuthRepository authRepository, IUserRepository userRepository, UserManager<ApplicationUser> userManager, IFileService fileService)
         {
             _authRepository = authRepository;
             _userRepository = userRepository;
             _userManager = userManager;
             _response = new ResponseDto();
+            _fileService = fileService;
         }
 
         [HttpPost("register")]
@@ -32,7 +35,7 @@ namespace AuthService.Controllers
         {
             if (model.file != null)
             {
-                //model.AvatarUrl = await _fileService.AddCompressAttachment(model.file);
+                model.AvatarUrl = await _fileService.AddCompressAttachment(model.file);
             }
             if (model.Email == null)
             {
