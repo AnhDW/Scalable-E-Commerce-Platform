@@ -5,6 +5,8 @@ using AuthService.Extensions;
 using AuthService.Profiles;
 using AuthService.Repositories;
 using AuthService.Repositories.IRepositories;
+using Common.Services;
+using Common.Services.IServices;
 using Contracts.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +38,7 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddScoped<IFileService, FileService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
